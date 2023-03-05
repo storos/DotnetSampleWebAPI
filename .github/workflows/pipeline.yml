@@ -37,9 +37,9 @@ jobs:
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GKE_ZONE }}
           
-#    - name: Configure Docker
-#      run: |-
-#        gcloud --quiet auth configure-docker
+    - name: Configure Docker
+      run: |-
+        gcloud --quiet auth configure-docker
 
 #    - name: GET GKE Credentials
 #      run: |-
