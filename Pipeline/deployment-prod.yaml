@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dotnetsamplewebapi-dep
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dotnetsamplewebapi
+  template:
+    metadata:
+      labels:
+        app: dotnetsamplewebapi
+      annotations:
+        linkerd.io/inject: disabled
+    spec:
+      containers:
+        - name: dotnetsamplewebapi
+          image: gcr.io/bubbly-yeti-377212/dotnetsamplewebapi:4
+          args: []
+      terminationGracePeriodSeconds: 30
