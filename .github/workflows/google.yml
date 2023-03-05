@@ -9,7 +9,7 @@ env:
   PROJECT_ID: ${{ secrets.GKE_PROJECT }}
   GKE_CLUSTER: techpo-cluster
   GKE_ZONE: europe-west3-a
-  DEPLOYMENT_NAME: github-actions-gke-deployment
+  DEPLOYMENT_NAME: dotnetsamplewebapi-dep
   IMAGE: dotnetsamplewebapi
   TAG: 0.0.1
 
@@ -47,7 +47,7 @@ jobs:
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
-        docker push gcr.io/$PROJECT_ID/$IMAGE:$$GITHUB_SHA
+        docker push gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
           
     # Set up kustomize
     - name: Set up Kustomize
