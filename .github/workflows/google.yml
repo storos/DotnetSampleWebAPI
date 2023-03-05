@@ -49,10 +49,10 @@ jobs:
       run: |-
         docker push gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
       
-    # Configure GCloud and kubectl
-    - name: Configure GCloud and Kubernetes
+    - name: Test Path
       run: |-
-        gcloud container clusters get-credentials $GKE_CLUSTER
+        ls -l ./Pipeline
+        kubectl config get-contexts
     
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
