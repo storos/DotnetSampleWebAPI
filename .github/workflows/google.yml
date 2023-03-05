@@ -50,7 +50,7 @@ jobs:
         docker push gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
       
     # Configure GCloud and kubectl
-    - name: Deploy
+    - name: Configure GCloud and Kubernetes
       run: |-
         gcloud components install gke-gcloud-auth-plugin
         gcloud container clusters get-credentials $GKE_CLUSTER
