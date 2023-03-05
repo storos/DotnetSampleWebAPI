@@ -52,7 +52,6 @@ jobs:
     # Configure GCloud and kubectl
     - name: Configure GCloud and Kubernetes
       run: |-
-        gcloud components install gke-gcloud-auth-plugin
         gcloud container clusters get-credentials $GKE_CLUSTER
     
     # Deploy the Docker image to the GKE cluster
