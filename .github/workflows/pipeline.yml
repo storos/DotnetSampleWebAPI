@@ -48,9 +48,9 @@ jobs:
       run: |-
         docker push gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
       
-    - name: Kubectl Authenticate
-      run: |-
-        gcloud components install gke-gcloud-auth-plugin
+    #- name: Kubectl Authenticate
+    #  run: |-
+    #    gcloud components install gke-gcloud-auth-plugin
     
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
