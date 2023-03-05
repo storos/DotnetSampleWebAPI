@@ -11,6 +11,7 @@ env:
   GKE_ZONE: europe-west3-a
   DEPLOYMENT_NAME: github-actions-gke-deployment
   IMAGE: dotnetsamplewebapi
+  TAG: 0.0.1
 
 jobs:
   setup-build-publish-deploy:
@@ -40,12 +41,12 @@ jobs:
     # Build the Docker image
     - name: Build
       run: |-
-        docker build -t gcr.io/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA .
+        docker build -t gcr.io/$PROJECT_ID/$REPOSITORY/$IMAGE:$TAG .
         
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
-        docker push "gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA"
+        docker push gcr.io/$PROJECT_ID/$IMAGE:$TAG
           
     # Set up kustomize
     - name: Set up Kustomize
