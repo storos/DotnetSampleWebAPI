@@ -37,9 +37,9 @@ jobs:
         cluster_name: ${{ env.GKE_CLUSTER }}
         location: ${{ env.GKE_ZONE }}
           
-    - name: Configure Docker
-      run: |-
-        gcloud --quiet auth configure-docker
+#    - name: Configure Docker
+#      run: |-
+#        gcloud --quiet auth configure-docker
 
 #    - name: GET GKE Credentials
 #      run: |-
@@ -49,9 +49,9 @@ jobs:
       run: |-
         docker push gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
       
-    - name: Kubectl Authenticate
-      run: |-
-        gcloud components install gke-gcloud-auth-plugin
+#    - name: Kubectl Authenticate
+#      run: |-
+#        gcloud components install gke-gcloud-auth-plugin
     
     # Deploy the Docker image to the GKE cluster
     - name: Deploy
