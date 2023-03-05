@@ -28,7 +28,7 @@ jobs:
         docker tag $IMAGE:$GITHUB_SHA gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
         
     - name: Setup Google Cloud CLI
-      uses: GoogleCloudPlatform/github-actions/setup-gcloud@1.1.0
+      uses: google-github-actions/github-actions/setup-gcloud@1.1.0
       env:
         ACTIONS_ALLOW_UNSECURE_COMMANDS: true
       with:
