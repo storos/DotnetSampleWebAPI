@@ -39,14 +39,15 @@ jobs:
         gcloud container clusters get-credentials "$GKE_CLUSTER" --zone "$GKE_ZONE"
       
     # Build the Docker image
-    - name: Build
+    - name: Build and Tag
       run: |-
-        docker build -t gcr.io/$PROJECT_ID/$REPOSITORY/$IMAGE:$TAG .
+        docker build --tag $IMAGE:$GITHUB_SHA .
+        docker tag gcr.io/$PROJECT_ID/$IMAGE:$TAG
         
     # Push the Docker image to Google Artifact Registry
     - name: Publish
       run: |-
-        docker push gcr.io/$PROJECT_ID/$IMAGE:$TAG
+        docker push gcr.io/$PROJECT_ID/$IMAGE:$$GITHUB_SHA
           
     # Set up kustomize
     - name: Set up Kustomize
