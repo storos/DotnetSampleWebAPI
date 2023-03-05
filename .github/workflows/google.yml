@@ -42,7 +42,7 @@ jobs:
     - name: Build and Tag
       run: |-
         docker build --tag $IMAGE:$GITHUB_SHA .
-        docker tag gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
+        docker tag $IMAGE:$GITHUB_SHA gcr.io/$PROJECT_ID/$IMAGE:$GITHUB_SHA
         
     # Push the Docker image to Google Artifact Registry
     - name: Publish
