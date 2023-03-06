@@ -13,4 +13,20 @@
     <PackageReference Include="xunit" Version="2.4.2" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Deployments\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="Deployments\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Deployments\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Deployments\**" />
+  </ItemGroup>
+
 </Project>

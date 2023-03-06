@@ -1,4 +1,4 @@
-namespace dotnetsamplewebapi;
+namespace DotnetSampleWebapi;
 
 public class WeatherForecast
 {

@@ -35,7 +35,8 @@ docker-push: ## build the cli as a docker image tag
 
 .PHONY: kube-install
 kube-install: ## install version into select kubernetes context
-	kubectl apply -f ./Pipeline/
+	envsubst < ./deployments/deployment-prod.yaml | kubectl apply -f -  
+    envsubst < ./deployments/service-prod.yaml | kubectl apply -f -  
 
 .PHONY: dev-env-start
 docker-run: ## build the cli as a docker image
