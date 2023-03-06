@@ -48,7 +48,7 @@ jobs:
     - name: Deploy
       run: |-
         export IMAGE_TAG_VERSION=$GITHUB_SHA
-        envsubst < ./Pipeline/deployment-prod.yaml | kubectl apply -f -  
-        envsubst < ./Pipeline/service-prod.yaml | kubectl apply -f -  
+        envsubst < ./deployments/deployment-prod.yaml | kubectl apply -f -  
+        envsubst < ./deployments/service-prod.yaml | kubectl apply -f -  
         kubectl rollout status deployment/$DEPLOYMENT_NAME
         kubectl get services -o wide
