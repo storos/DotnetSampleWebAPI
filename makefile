@@ -37,6 +37,7 @@ docker-push: ## build the cli as a docker image tag
 kube-install: ## install version into select kubernetes context
 	envsubst < ./deployments/deployment-prod.yaml | kubectl apply -f -  
     envsubst < ./deployments/service-prod.yaml | kubectl apply -f -  
+    #envsubst < ./deployments/ingress-prod.yaml | kubectl apply -f -  
 
 .PHONY: dev-env-start
 docker-run: ## build the cli as a docker image
